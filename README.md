@@ -56,3 +56,28 @@ Realize uma requisição GET para o endpoint de contas (ex: substituindo pela su
 http://localhost:5130/api/contas/123
 ```
 
+### Com o Docker ligado faça a conexão:
+
+<img width="1345" height="519" alt="docker ligado" src="https://github.com/user-attachments/assets/b632d3a7-fa04-4aef-9446-2f4f57cf8ad9" />
+
+
+* Primeira Execução: O sistema apresentará uma latência de 2 segundos (Simulação de query pesada no SQL Server) e o JSON indicará Fonte: SQL Server.
+
+<img width="937" height="606" alt="BrqSql" src="https://github.com/user-attachments/assets/467b0b31-00f7-4c75-a3c8-5bdce84d0045" />
+
+* Segunda Execução (Imediata): O retorno será instantâneo (0ms), exibindo Fonte: Redis (Cache).
+
+<img width="925" height="444" alt="BrqRedis" src="https://github.com/user-attachments/assets/17d06077-3817-452a-aabf-c0edaec30553" />
+
+###  Com o Docker desligado:
+
+<img width="1345" height="494" alt="Dockedesligado" src="https://github.com/user-attachments/assets/170c1e03-b6f6-46ac-8d11-9a6ef2072d6e" />
+
+* Simulação de Falha: Execute docker-compose stop no terminal para derrubar o Redis e repita a requisição. A aplicação continuará respondendo (via SQL Server), demonstrando a resiliência do ecossistema.
+
+<img width="937" height="606" alt="BrqSql" src="https://github.com/user-attachments/assets/467b0b31-00f7-4c75-a3c8-5bdce84d0045" />
+
+
+
+
+
