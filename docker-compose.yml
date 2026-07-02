@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  cache-redis:
+    image: redis:7.2-alpine
+    container_name: brq_redis_test
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:
